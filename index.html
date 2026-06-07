@@ -3,11 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Michael's Men's Club — AI Operations · Lafayette, Louisiana</title>
-<meta name="description" content="Michael's Men's Club in Lafayette, Louisiana runs the most advanced AI operations system in the gentlemen's club industry. Built by DJ of the Year Jeremy Sweigert.">
-<meta property="og:title" content="Michael's Men's Club — AI Operations">
-<meta property="og:description" content="Live rotation management, neural voice automation, AI security, and music intelligence. Built in-house by DJ of the Year Jeremy Sweigert.">
-<meta property="og:type" content="website">
+<title>Michael's Men's Club — AI Operations</title>
+<meta name="description" content="Michael's Men's Club runs the most advanced AI operations system in the gentlemen's club industry. Built by DJ of the Year Jeremy Sweigert.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,7 +20,6 @@
   --ink:      #e8e8f0;
   --muted:    #888888;
   --line:     rgba(201,168,76,0.12);
-  --card-bg:  rgba(15,15,15,0.95);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
@@ -51,7 +47,7 @@ nav{position:fixed;top:3px;left:0;right:0;z-index:90;backdrop-filter:blur(20px) 
 @keyframes gridDrift{to{background-position:60px 60px;}}
 .hero-glow{position:absolute;top:-20%;left:50%;transform:translateX(-50%);width:800px;height:600px;background:radial-gradient(ellipse,rgba(201,168,76,0.18) 0%,transparent 65%);pointer-events:none;}
 .hero-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;z-index:1;}
-@media(max-width:900px){.hero-inner{grid-template-columns:1fr;}.hero-visual{display:none;}}
+@media(max-width:900px){.hero-inner{grid-template-columns:1fr;}}
 .hero-eyebrow{font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.25em;color:var(--gold);text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:10px;}
 .hero-eyebrow::before{content:'';display:block;width:32px;height:1px;background:var(--gold);}
 .hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(3.5rem,7vw,6rem);line-height:0.95;letter-spacing:0.02em;margin-bottom:28px;}
@@ -62,33 +58,7 @@ nav{position:fixed;top:3px;left:0;right:0;z-index:90;backdrop-filter:blur(20px) 
 .btn-ghost{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(255,255,255,0.15);color:var(--ink);text-decoration:none;padding:14px 32px;font-weight:500;font-size:0.9rem;letter-spacing:0.04em;border-radius:4px;transition:border-color .2s,background .2s;}
 .btn-ghost:hover{border-color:var(--gold);background:rgba(201,168,76,0.08);}
 .hero-btns{display:flex;gap:16px;flex-wrap:wrap;}
-
-/* ROTATION DEMO */
-.rotation-demo{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:20px;font-family:'JetBrains Mono',monospace;font-size:0.75rem;position:relative;overflow:hidden;}
-.rotation-demo::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--gold2),transparent);}
-.demo-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--line);}
-.demo-title{color:var(--muted);letter-spacing:0.15em;font-size:0.68rem;}
-.demo-live{display:flex;align-items:center;gap:6px;color:#4ade80;font-size:0.68rem;}
-.live-dot{width:6px;height:6px;border-radius:50%;background:#4ade80;box-shadow:0 0 6px #4ade80;animation:pulse 2s ease-in-out infinite;}
-@keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.3;}}
-.stage-row{display:grid;grid-template-columns:80px 1fr auto;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.04);}
-.stage-row:last-child{border-bottom:none;}
-.stage-label{color:var(--muted);font-size:0.65rem;letter-spacing:0.1em;}
-.performer-card{background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.25);border-radius:6px;padding:8px 12px;display:flex;align-items:center;gap:8px;}
-.performer-card.side{background:rgba(100,180,255,0.08);border-color:rgba(100,180,255,0.2);}
-.performer-card.vip{background:rgba(201,168,76,0.12);border-color:rgba(201,168,76,0.35);}
-.performer-dot{width:8px;height:8px;border-radius:50%;background:var(--gold);flex-shrink:0;}
-.performer-card.side .performer-dot{background:#64b4ff;}
-.performer-card.vip .performer-dot{background:var(--gold);}
-.performer-name{color:var(--ink);font-size:0.78rem;}
-.performer-card.vip .performer-name{color:var(--gold);}
-.performer-time{color:var(--muted);font-size:0.65rem;}
-.stage-timer{color:var(--gold);font-size:0.72rem;text-align:right;}
-.queue-row{margin-top:14px;padding-top:12px;border-top:1px solid var(--line);}
-.queue-label{color:var(--muted);font-size:0.65rem;letter-spacing:0.12em;margin-bottom:8px;}
-.queue-chips{display:flex;gap:6px;flex-wrap:wrap;}
-.q-chip{background:rgba(255,255,255,0.04);border:1px solid var(--line);border-radius:4px;padding:4px 10px;font-size:0.68rem;color:var(--muted);}
-.q-chip.next{border-color:rgba(201,168,76,0.6);color:var(--gold);background:rgba(201,168,76,0.1);}
+.hero-visual img {width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--line); box-shadow: 0 20px 40px rgba(0,0,0,0.6);}
 
 /* SHARED SECTION STYLES */
 .section-header{margin-bottom:64px;}
@@ -130,27 +100,6 @@ nav{position:fixed;top:3px;left:0;right:0;z-index:90;backdrop-filter:blur(20px) 
 #voice{padding:100px 0;}
 .voice-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
 @media(max-width:900px){.voice-inner{grid-template-columns:1fr;}}
-.voice-visual{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:32px;position:relative;overflow:hidden;}
-.voice-visual::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
-.waveform{display:flex;align-items:center;justify-content:center;gap:4px;height:80px;margin:20px 0;}
-.wave-bar{width:3px;background:var(--gold);border-radius:2px;animation:wave 1.4s ease-in-out infinite;}
-.wave-bar:nth-child(1){height:20px;animation-delay:.0s}
-.wave-bar:nth-child(2){height:35px;animation-delay:.1s}
-.wave-bar:nth-child(3){height:55px;animation-delay:.2s}
-.wave-bar:nth-child(4){height:45px;animation-delay:.3s}
-.wave-bar:nth-child(5){height:65px;animation-delay:.15s}
-.wave-bar:nth-child(6){height:50px;animation-delay:.25s}
-.wave-bar:nth-child(7){height:70px;animation-delay:.05s}
-.wave-bar:nth-child(8){height:45px;animation-delay:.35s}
-.wave-bar:nth-child(9){height:60px;animation-delay:.2s}
-.wave-bar:nth-child(10){height:40px;animation-delay:.1s}
-.wave-bar:nth-child(11){height:55px;animation-delay:.3s}
-.wave-bar:nth-child(12){height:30px;animation-delay:.4s}
-.wave-bar:nth-child(13){height:50px;animation-delay:.15s}
-.wave-bar:nth-child(14){height:35px;animation-delay:.05s}
-.wave-bar:nth-child(15){height:20px;animation-delay:.25s}
-@keyframes wave{0%,100%{transform:scaleY(0.4);opacity:0.4;}50%{transform:scaleY(1);opacity:1;}}
-.voice-label{text-align:center;font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--muted);letter-spacing:0.15em;}
 .voice-stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:24px;}
 .vs-item{background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.25);border-radius:6px;padding:12px;text-align:center;}
 .vs-num{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;color:var(--gold);display:block;}
@@ -160,17 +109,6 @@ nav{position:fixed;top:3px;left:0;right:0;z-index:90;backdrop-filter:blur(20px) 
 #security{padding:100px 0;background:var(--bg2);}
 .security-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
 @media(max-width:900px){.security-inner{grid-template-columns:1fr;}}
-.camera-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
-.cam-feed{background:#000;border:1px solid rgba(255,255,255,0.08);border-radius:6px;aspect-ratio:16/10;position:relative;overflow:hidden;}
-.cam-feed::before{content:attr(data-label);position:absolute;top:6px;left:8px;font-family:'JetBrains Mono',monospace;font-size:0.58rem;color:rgba(255,255,255,0.5);letter-spacing:0.08em;z-index:2;}
-.cam-dot{position:absolute;top:6px;right:8px;width:5px;height:5px;border-radius:50%;background:#4ade80;animation:pulse 2s ease-in-out infinite;z-index:2;}
-.cam-dot.alert{background:var(--gold);box-shadow:0 0 8px var(--gold);animation-duration:.5s;}
-.cam-bg{position:absolute;inset:0;background:linear-gradient(135deg,rgba(30,30,30,0.8) 0%,rgba(15,15,15,0.95) 100%);}
-.cam-scan{position:absolute;left:0;right:0;height:1px;background:rgba(201,168,76,0.5);animation:scan 3s linear infinite;}
-.cam-feed.alert-feed .cam-scan{background:rgba(201,168,76,0.6);}
-.cam-feed.alert-feed{border-color:rgba(201,168,76,0.4);box-shadow:0 0 0 1px rgba(201,168,76,0.2);}
-@keyframes scan{from{top:0;}to{top:100%;}}
-.cam-alert-badge{position:absolute;bottom:6px;left:50%;transform:translateX(-50%);background:var(--gold);color:#111;font-family:'JetBrains Mono',monospace;font-size:0.55rem;padding:2px 8px;border-radius:3px;white-space:nowrap;letter-spacing:0.05em;}
 
 /* BUILDER */
 #builder{padding:100px 0;}
@@ -227,7 +165,7 @@ footer{padding:40px 0;border-top:1px solid var(--line);position:relative;z-index
 <nav>
   <div class="nav-inner">
     <a href="#" class="nav-logo">
-      <img src="/attachments/MMC Logo Gold no frame.png" alt="Michael's Men's Club Logo" />
+      <img src="MMC Logo Gold no frame_2.jpg" alt="Michael's Men's Club Logo" />
     </a>
     <ul class="nav-links">
       <li><a href="#features">System</a></li>
@@ -257,46 +195,8 @@ footer{padding:40px 0;border-top:1px solid var(--line);position:relative;z-index
       </div>
 
       <div class="hero-visual">
-        <div class="rotation-demo">
-          <div class="demo-header">
-            <span class="demo-title">ROTATION · LIVE</span>
-            <span class="demo-live"><span class="live-dot"></span>ACTIVE</span>
-          </div>
-          <div class="stage-row">
-            <span class="stage-label">MAIN STAGE</span>
-            <div class="performer-card">
-              <span class="performer-dot"></span>
-              <div><div class="performer-name">Angelina</div><div class="performer-time">Set 2 of 2</div></div>
-            </div>
-            <div class="stage-timer" id="t1">6:24</div>
-          </div>
-          <div class="stage-row">
-            <span class="stage-label">SIDE STAGE</span>
-            <div class="performer-card side">
-              <span class="performer-dot"></span>
-              <div><div class="performer-name">Cosmo</div><div class="performer-time">Set 1 of 2</div></div>
-            </div>
-            <div class="stage-timer" style="color:#64b4ff;" id="t2">3:11</div>
-          </div>
-          <div class="stage-row">
-            <span class="stage-label">VIP ROOM</span>
-            <div class="performer-card vip">
-              <span class="performer-dot"></span>
-              <div><div class="performer-name">Pamala</div><div class="performer-time">Room 2</div></div>
-            </div>
-            <div class="stage-timer" style="color:var(--gold);" id="t3">18:40</div>
-          </div>
-          <div class="queue-row">
-            <div class="queue-label">NEXT UP</div>
-            <div class="queue-chips">
-              <span class="q-chip next">Valery</span>
-              <span class="q-chip">Ruby</span>
-              <span class="q-chip">Helena</span>
-              <span class="q-chip">Scarlette</span>
-            </div>
-          </div>
-        </div>
-        <p style="font-family:'JetBrains Mono',monospace;font-size:0.62rem;color:var(--muted);text-align:center;margin-top:10px;letter-spacing:0.1em;">LIVE SYSTEM · MICHAEL'S MEN'S CLUB · LAFAYETTE LA</p>
+        <img src="Screenshot 2026-06-07 035119_2.jpg" alt="Rotation Board Live" />
+        <p style="font-family:'JetBrains Mono',monospace;font-size:0.62rem;color:var(--muted);text-align:center;margin-top:16px;letter-spacing:0.1em;">LIVE SYSTEM · MICHAEL'S MEN'S CLUB · LAFAYETTE LA</p>
       </div>
     </div>
   </div>
@@ -307,7 +207,7 @@ footer{padding:40px 0;border-top:1px solid var(--line);position:relative;z-index
   <div class="container">
     <div class="stat-bar-inner">
       <div class="stat-item reveal"><span class="stat-num">33</span><span class="stat-label">Years on the decks</span></div>
-      <div class="stat-item reveal reveal-delay-1"><span class="stat-num">657K</span><span class="stat-label">Tracks in the library</span></div>
+      <div class="stat-item reveal reveal-delay-1"><span class="stat-num">657,324</span><span class="stat-label">Tracks & Videos</span></div>
       <div class="stat-item reveal reveal-delay-2"><span class="stat-num">481K</span><span class="stat-label">Photos archived</span></div>
       <div class="stat-item reveal reveal-delay-3"><span class="stat-num">2039</span><span class="stat-label">People indexed</span></div>
     </div>
@@ -319,21 +219,21 @@ footer{padding:40px 0;border-top:1px solid var(--line);position:relative;z-index
   <div class="container">
     <div class="section-header reveal">
       <p class="section-eyebrow">The System</p>
-      <h2 class="section-title">Five Layers.<br>One Floor.</h2>
+      <h2 class="section-title">Six Layers.<br>One Floor.</h2>
       <p class="section-sub">Every component was designed specifically for this building, this staff, and this industry — by the man who works the room every night.</p>
     </div>
     <div class="features-grid">
       <div class="feature-card reveal">
         <span class="feature-icon">⚡</span>
         <div class="feature-title">Live Rotation Management</div>
-        <p class="feature-desc">Real-time performer tracking across every stage. Intelligent sequencing with automatic transitions, VIP room logging, and drag-to-reorder. Every screen in the club updates simultaneously.</p>
-        <p class="feature-detail">→ Follow-follow · Multi-stage · Song-count timing</p>
+        <p class="feature-desc">Real-time performer tracking across every stage. Promo videos and videos of names of girls are automatically displayed on rotation, all using a specially designed Virtual DJ plugin.</p>
+        <p class="feature-detail">→ Virtual DJ Plugin · Auto-rotation displays</p>
       </div>
       <div class="feature-card reveal reveal-delay-1">
         <span class="feature-icon">🎙️</span>
         <div class="feature-title">Neural Voice Automation</div>
         <p class="feature-desc">A trained AI clone of the DJ's voice — 500 epochs of neural processing — delivers stage announcements automatically. The club sounds like itself even when the DJ is working the crowd.</p>
-        <p class="feature-detail">→ 26 min training audio · Indistinguishable from live</p>
+        <p class="feature-detail">→ 360 min training audio · Indistinguishable from live</p>
       </div>
       <div class="feature-card reveal reveal-delay-2">
         <span class="feature-icon">💰</span>
@@ -351,7 +251,7 @@ footer{padding:40px 0;border-top:1px solid var(--line);position:relative;z-index
         <span class="feature-icon">🎚️</span>
         <div class="feature-title">Music Intelligence</div>
         <p class="feature-desc">657,324 tracks (music + music videos) — 8.88TB of data — analyzed by BPM and Camelot harmonic key. Ask for compatible tracks at any tempo and receive specific songs from the actual library, instantly.</p>
-        <p class="feature-detail">→ 657K tracks · Camelot wheel · Live lookup</p>
+        <p class="feature-detail">→ 657,324 tracks · Camelot wheel · Live lookup</p>
       </div>
       <div class="feature-card reveal reveal-delay-3">
         <span class="feature-icon">🧠</span>
@@ -378,46 +278,9 @@ footer{padding:40px 0;border-top:1px solid var(--line);position:relative;z-index
           <li><span class="rp-num">04</span><span class="rp-text"><strong>Earnings Captured Live</strong>Stage time and room income logged continuously. Management reports generate on demand, formatted for print, no reconciliation required.</span></li>
         </ul>
       </div>
-      <div class="reveal reveal-delay-2">
-        <div class="rotation-demo">
-          <div class="demo-header">
-            <span class="demo-title">STAGE MANAGEMENT · TONIGHT</span>
-            <span class="demo-live"><span class="live-dot"></span>LIVE</span>
-          </div>
-          <div class="stage-row">
-            <span class="stage-label">MAIN</span>
-            <div class="performer-card"><span class="performer-dot"></span><div><div class="performer-name">Nunna</div><div class="performer-time">Song 2 · Set 2</div></div></div>
-            <div class="stage-timer">6:24</div>
-          </div>
-          <div class="stage-row">
-            <span class="stage-label">SIDE</span>
-            <div class="performer-card side"><span class="performer-dot"></span><div><div class="performer-name">Cosmo</div><div class="performer-time">Song 1 · Set 1</div></div></div>
-            <div class="stage-timer" style="color:#64b4ff;">3:11</div>
-          </div>
-          <div class="stage-row">
-            <span class="stage-label">ROOM 1</span>
-            <div class="performer-card vip"><span class="performer-dot"></span><div><div class="performer-name">Pamala</div><div class="performer-time">VIP · 18:40</div></div></div>
-            <div class="stage-timer" style="color:var(--gold);">$120</div>
-          </div>
-          <div class="stage-row">
-            <span class="stage-label">ROOM 2</span>
-            <div class="performer-card vip"><span class="performer-dot"></span><div><div class="performer-name">Angelina</div><div class="performer-time">Dance · 4:20</div></div></div>
-            <div class="stage-timer" style="color:var(--gold);">$40</div>
-          </div>
-          <div class="queue-row">
-            <div class="queue-label">ROTATION QUEUE</div>
-            <div class="queue-chips">
-              <span class="q-chip next">Valery</span>
-              <span class="q-chip">Ruby</span>
-              <span class="q-chip">Helena</span>
-              <span class="q-chip">Scarlette</span>
-            </div>
-          </div>
-          <div style="margin-top:16px;padding:10px 14px;background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.3);border-radius:6px;display:flex;justify-content:space-between;align-items:center;">
-            <div style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:var(--muted);letter-spacing:0.1em;">TONIGHT'S EARNINGS</div>
-            <div style="color:var(--gold);font-family:'Bebas Neue',sans-serif;font-size:1.4rem;">$1,840</div>
-          </div>
-        </div>
+      <div class="reveal reveal-delay-2" style="display: flex; flex-direction: column; gap: 24px;">
+        <img src="Screenshot 2026-06-07 035027_2.jpg" alt="Financial Dashboard" style="width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--line); box-shadow: 0 10px 30px rgba(0,0,0,0.5);" />
+        <img src="Screenshot 2026-06-07 035237_2.jpg" alt="VIP Room Management" style="width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--line); box-shadow: 0 10px 30px rgba(0,0,0,0.5);" />
       </div>
     </div>
   </div>
@@ -427,19 +290,11 @@ footer{padding:40px 0;border-top:1px solid var(--line);position:relative;z-index
 <section id="voice">
   <div class="container">
     <div class="voice-inner">
-      <div class="voice-visual reveal">
-        <p style="font-family:'JetBrains Mono',monospace;font-size:0.68rem;color:var(--muted);letter-spacing:0.15em;margin-bottom:8px;">NEURAL VOICE · SWAG_V2 · ACTIVE</p>
-        <div class="waveform">
-          <div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div>
-          <div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div>
-          <div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div>
-          <div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div>
-          <div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div>
-        </div>
-        <p class="voice-label">STAGE TRANSITION IN PROGRESS</p>
+      <div class="voice-visual reveal" style="padding: 0; background: transparent; border: none;">
+        <img src="Screenshot 2026-06-07 035342_2.jpg" alt="Voice Automation Settings" style="width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--line); box-shadow: 0 10px 30px rgba(0,0,0,0.5);" />
         <div class="voice-stats">
           <div class="vs-item"><span class="vs-num">500</span><span class="vs-label">Training epochs</span></div>
-          <div class="vs-item"><span class="vs-num">26m</span><span class="vs-label">Audio trained on</span></div>
+          <div class="vs-item"><span class="vs-num">360m</span><span class="vs-label">Audio trained on</span></div>
           <div class="vs-item"><span class="vs-num">0ms</span><span class="vs-label">Cloud latency</span></div>
           <div class="vs-item"><span class="vs-num">1</span><span class="vs-label">Human voice cloned</span></div>
         </div>
@@ -470,17 +325,14 @@ footer{padding:40px 0;border-top:1px solid var(--line);position:relative;z-index
         <p style="color:var(--muted);font-size:0.9rem;line-height:1.75;">Behavioral pattern recognition. Crowd density analysis. Proximity detection. Running quietly, every hour the club is open.</p>
       </div>
       <div class="reveal reveal-delay-2">
-        <div class="camera-grid">
-          <div class="cam-feed" data-label="CAM 01 · ENTRANCE"><div class="cam-bg"></div><div class="cam-dot"></div><div class="cam-scan"></div></div>
-          <div class="cam-feed alert-feed" data-label="CAM 03 · MAIN FLOOR"><div class="cam-bg"></div><div class="cam-dot alert"></div><div class="cam-scan"></div><div class="cam-alert-badge">⚠ BEHAVIORAL ALERT</div></div>
-          <div class="cam-feed" data-label="CAM 05 · BAR"><div class="cam-bg"></div><div class="cam-dot"></div><div class="cam-scan" style="animation-delay:-1.5s;"></div></div>
-          <div class="cam-feed" data-label="CAM 07 · STAGE REAR"><div class="cam-bg"></div><div class="cam-dot"></div><div class="cam-scan" style="animation-delay:-0.7s;"></div></div>
-        </div>
-        <div style="margin-top:12px;background:var(--bg2);border:1px solid rgba(201,168,76,0.3);border-radius:6px;padding:12px 16px;display:flex;align-items:center;gap:12px;">
-          <div style="width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 8px var(--gold);animation:pulse .5s ease-in-out infinite;flex-shrink:0;"></div>
+        
+        <video src="security_video.mp4" autoplay loop muted playsinline style="width: 100%; border-radius: 12px; border: 1px solid var(--gold); box-shadow: 0 10px 30px rgba(201,168,76,0.1);"></video>
+        
+        <div style="margin-top:16px; background:var(--bg2); border:1px solid rgba(201,168,76,0.3); border-radius:6px; padding:12px 16px; display:flex; align-items:center; gap:12px;">
+          <div style="width:8px; height:8px; border-radius:50%; background:var(--gold); box-shadow:0 0 8px var(--gold); animation:pulse 1.5s ease-in-out infinite; flex-shrink:0;"></div>
           <div>
-            <div style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:var(--gold);letter-spacing:0.1em;">ALERT · CAM 03 · MAIN FLOOR</div>
-            <div style="font-size:0.75rem;color:var(--muted);margin-top:2px;">Elevated proximity pattern detected — security notified</div>
+            <div style="font-family:'JetBrains Mono',monospace; font-size:0.65rem; color:var(--gold); letter-spacing:0.1em;">ALERT · BEHAVIORAL ANALYSIS RUNNING</div>
+            <div style="font-size:0.75rem; color:var(--muted); margin-top:2px;">Monitoring physical signals across all live feeds</div>
           </div>
         </div>
       </div>
@@ -561,20 +413,6 @@ const obs = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
 }, { threshold: 0.12 });
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-
-// Live timers on hero rotation demo
-function tickTimer(id, up) {
-  const el = document.getElementById(id);
-  if (!el) return;
-  const txt = el.textContent;
-  if (!txt.includes(':')) return;
-  const [m, s] = txt.split(':').map(Number);
-  let total = m * 60 + s + (up ? 1 : -1);
-  if (total < 0) total = 0;
-  const nm = Math.floor(total / 60), ns = total % 60;
-  el.textContent = nm + ':' + String(ns).padStart(2, '0');
-}
-setInterval(() => { tickTimer('t1', false); tickTimer('t2', false); tickTimer('t3', true); }, 1000);
 </script>
 </body>
 </html>
