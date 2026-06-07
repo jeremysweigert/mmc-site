@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Michael's Men's Club — AI Operations · Lafayette, Louisiana</title>
+<meta name="description" content="Michael's Men's Club in Lafayette, Louisiana runs the most advanced AI operations system in the gentlemen's club industry. Built by DJ of the Year Jeremy Sweigert.">
+<meta property="og:title" content="Michael's Men's Club — AI Operations">
+<meta property="og:description" content="Live rotation management, neural voice automation, AI security, and music intelligence. Built in-house by DJ of the Year Jeremy Sweigert.">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg:       #080810;
+  --bg2:      #0d0d1a;
+  --bg3:      #111122;
+  --magenta:  #e8105a;
+  --magenta2: #ff3374;
+  --gold:     #c9a84c;
+  --ink:      #e8e8f0;
+  --muted:    #6b6b88;
+  --line:     rgba(255,255,255,0.06);
+  --card-bg:  rgba(13,13,26,0.9);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--ink);font-family:'Outfit',sans-serif;font-weight:400;line-height:1.6;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");pointer-events:none;z-index:0;}
+body::after{content:'';position:fixed;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--magenta),#ff6b9d,var(--magenta));z-index:100;}
+
+.container{max-width:1100px;margin:0 auto;padding:0 32px;}
+section{position:relative;z-index:1;}
+
+/* NAV */
+nav{position:fixed;top:3px;left:0;right:0;z-index:90;backdrop-filter:blur(20px) saturate(180%);background:rgba(8,8,16,0.88);border-bottom:1px solid var(--line);}
+.nav-inner{max-width:1100px;margin:0 auto;padding:0 32px;height:64px;display:flex;align-items:center;justify-content:space-between;}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:0.08em;color:var(--ink);text-decoration:none;}
+.nav-logo span{color:var(--magenta);}
+.nav-links{display:flex;gap:28px;list-style:none;}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:0.8rem;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;transition:color .2s;}
+.nav-links a:hover{color:var(--ink);}
+.nav-cta{background:var(--magenta)!important;color:#fff!important;padding:8px 20px;border-radius:4px;font-weight:600!important;}
+.nav-cta:hover{background:var(--magenta2)!important;}
+@media(max-width:700px){.nav-links{display:none;}}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;padding:120px 0 80px;position:relative;overflow:hidden;}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 70% 80% at 50% 50%,#000 30%,transparent 100%);animation:gridDrift 60s linear infinite;}
+@keyframes gridDrift{to{background-position:60px 60px;}}
+.hero-glow{position:absolute;top:-20%;left:50%;transform:translateX(-50%);width:800px;height:600px;background:radial-gradient(ellipse,rgba(232,16,90,0.12) 0%,transparent 65%);pointer-events:none;}
+.hero-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;z-index:1;}
+@media(max-width:900px){.hero-inner{grid-template-columns:1fr;}.hero-visual{display:none;}}
+.hero-eyebrow{font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.25em;color:var(--magenta);text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:10px;}
+.hero-eyebrow::before{content:'';display:block;width:32px;height:1px;background:var(--magenta);}
+.hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(3.5rem,7vw,6rem);line-height:0.95;letter-spacing:0.02em;margin-bottom:28px;}
+.hero h1 em{font-style:normal;color:var(--magenta);display:block;}
+.hero-sub{font-size:1rem;color:var(--muted);line-height:1.75;max-width:480px;margin-bottom:40px;}
+.btn-primary{display:inline-flex;align-items:center;gap:10px;background:var(--magenta);color:#fff;text-decoration:none;padding:14px 32px;font-weight:600;font-size:0.9rem;letter-spacing:0.04em;border-radius:4px;transition:background .2s,transform .15s;}
+.btn-primary:hover{background:var(--magenta2);transform:translateY(-2px);}
+.btn-ghost{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(255,255,255,0.15);color:var(--ink);text-decoration:none;padding:14px 32px;font-weight:500;font-size:0.9rem;letter-spacing:0.04em;border-radius:4px;transition:border-color .2s,background .2s;}
+.btn-ghost:hover{border-color:var(--magenta);background:rgba(232,16,90,0.08);}
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap;}
+
+/* ROTATION DEMO */
+.rotation-demo{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:20px;font-family:'JetBrains Mono',monospace;font-size:0.75rem;position:relative;overflow:hidden;}
+.rotation-demo::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--magenta),#ff6b9d,transparent);}
+.demo-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--line);}
+.demo-title{color:var(--muted);letter-spacing:0.15em;font-size:0.68rem;}
+.demo-live{display:flex;align-items:center;gap:6px;color:#4ade80;font-size:0.68rem;}
+.live-dot{width:6px;height:6px;border-radius:50%;background:#4ade80;box-shadow:0 0 6px #4ade80;animation:pulse 2s ease-in-out infinite;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.3;}}
+.stage-row{display:grid;grid-template-columns:80px 1fr auto;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.04);}
+.stage-row:last-child{border-bottom:none;}
+.stage-label{color:var(--muted);font-size:0.65rem;letter-spacing:0.1em;}
+.performer-card{background:rgba(232,16,90,0.1);border:1px solid rgba(232,16,90,0.25);border-radius:6px;padding:8px 12px;display:flex;align-items:center;gap:8px;}
+.performer-card.side{background:rgba(0,180,255,0.08);border-color:rgba(0,180,255,0.2);}
+.performer-card.vip{background:rgba(201,168,76,0.08);border-color:rgba(201,168,76,0.2);}
+.performer-dot{width:8px;height:8px;border-radius:50%;background:var(--magenta);flex-shrink:0;}
+.performer-card.side .performer-dot{background:#00b4ff;}
+.performer-card.vip .performer-dot{background:var(--gold);}
+.performer-name{color:var(--ink);font-size:0.78rem;}
+.performer-card.vip .performer-name{color:var(--gold);}
+.performer-time{color:var(--muted);font-size:0.65rem;}
+.stage-timer{color:var(--magenta);font-size:0.72rem;text-align:right;}
+.queue-row{margin-top:14px;padding-top:12px;border-top:1px solid var(--line);}
+.queue-label{color:var(--muted);font-size:0.65rem;letter-spacing:0.12em;margin-bottom:8px;}
+.queue-chips{display:flex;gap:6px;flex-wrap:wrap;}
+.q-chip{background:rgba(255,255,255,0.04);border:1px solid var(--line);border-radius:4px;padding:4px 10px;font-size:0.68rem;color:var(--muted);}
+.q-chip.next{border-color:rgba(201,168,76,0.4);color:var(--gold);background:rgba(201,168,76,0.06);}
+
+/* SHARED SECTION STYLES */
+.section-header{margin-bottom:64px;}
+.section-eyebrow{font-family:'JetBrains Mono',monospace;font-size:0.7rem;letter-spacing:0.25em;color:var(--magenta);text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:12px;}
+.section-eyebrow::after{content:'';flex:1;max-width:60px;height:1px;background:var(--magenta);opacity:0.5;}
+.section-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.4rem,5vw,4rem);line-height:1;letter-spacing:0.03em;margin-bottom:20px;}
+.section-sub{color:var(--muted);font-size:1rem;line-height:1.7;max-width:560px;}
+
+/* STAT BAR */
+.stat-bar{padding:40px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:80px 0;}
+.stat-bar-inner{display:grid;grid-template-columns:repeat(4,1fr);gap:40px;}
+@media(max-width:700px){.stat-bar-inner{grid-template-columns:1fr 1fr;}}
+.stat-item{text-align:center;}
+.stat-num{font-family:'Bebas Neue',sans-serif;font-size:3rem;color:var(--magenta);line-height:1;display:block;}
+.stat-label{font-size:0.75rem;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;margin-top:6px;}
+
+/* FEATURES */
+#features{padding:100px 0;}
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden;}
+@media(max-width:900px){.features-grid{grid-template-columns:1fr;}}
+.feature-card{background:var(--bg2);padding:36px 32px;position:relative;transition:background .25s;}
+.feature-card:hover{background:var(--bg3);}
+.feature-icon{font-size:2rem;margin-bottom:20px;display:block;}
+.feature-title{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:0.05em;margin-bottom:12px;}
+.feature-desc{color:var(--muted);font-size:0.88rem;line-height:1.65;}
+.feature-detail{margin-top:16px;padding-top:16px;border-top:1px solid var(--line);font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--magenta);letter-spacing:0.05em;}
+
+/* ROTATION SECTION */
+#rotation{padding:100px 0;background:var(--bg2);}
+.rotation-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+@media(max-width:900px){.rotation-inner{grid-template-columns:1fr;}}
+.rotation-points{list-style:none;margin-top:32px;}
+.rotation-points li{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--line);font-size:0.9rem;color:var(--muted);line-height:1.5;}
+.rotation-points li:last-child{border-bottom:none;}
+.rp-num{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;color:var(--magenta);opacity:0.4;flex-shrink:0;line-height:1;}
+.rp-text strong{color:var(--ink);display:block;margin-bottom:4px;font-weight:600;}
+
+/* VOICE */
+#voice{padding:100px 0;}
+.voice-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+@media(max-width:900px){.voice-inner{grid-template-columns:1fr;}}
+.voice-visual{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:32px;position:relative;overflow:hidden;}
+.voice-visual::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--magenta),transparent);}
+.waveform{display:flex;align-items:center;justify-content:center;gap:4px;height:80px;margin:20px 0;}
+.wave-bar{width:3px;background:var(--magenta);border-radius:2px;animation:wave 1.4s ease-in-out infinite;}
+.wave-bar:nth-child(1){height:20px;animation-delay:.0s}
+.wave-bar:nth-child(2){height:35px;animation-delay:.1s}
+.wave-bar:nth-child(3){height:55px;animation-delay:.2s}
+.wave-bar:nth-child(4){height:45px;animation-delay:.3s}
+.wave-bar:nth-child(5){height:65px;animation-delay:.15s}
+.wave-bar:nth-child(6){height:50px;animation-delay:.25s}
+.wave-bar:nth-child(7){height:70px;animation-delay:.05s}
+.wave-bar:nth-child(8){height:45px;animation-delay:.35s}
+.wave-bar:nth-child(9){height:60px;animation-delay:.2s}
+.wave-bar:nth-child(10){height:40px;animation-delay:.1s}
+.wave-bar:nth-child(11){height:55px;animation-delay:.3s}
+.wave-bar:nth-child(12){height:30px;animation-delay:.4s}
+.wave-bar:nth-child(13){height:50px;animation-delay:.15s}
+.wave-bar:nth-child(14){height:35px;animation-delay:.05s}
+.wave-bar:nth-child(15){height:20px;animation-delay:.25s}
+@keyframes wave{0%,100%{transform:scaleY(0.4);opacity:0.4;}50%{transform:scaleY(1);opacity:1;}}
+.voice-label{text-align:center;font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--muted);letter-spacing:0.15em;}
+.voice-stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:24px;}
+.vs-item{background:rgba(232,16,90,0.06);border:1px solid rgba(232,16,90,0.15);border-radius:6px;padding:12px;text-align:center;}
+.vs-num{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;color:var(--magenta);display:block;}
+.vs-label{font-size:0.65rem;color:var(--muted);letter-spacing:0.1em;}
+
+/* SECURITY */
+#security{padding:100px 0;background:var(--bg2);}
+.security-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+@media(max-width:900px){.security-inner{grid-template-columns:1fr;}}
+.camera-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.cam-feed{background:#000;border:1px solid rgba(255,255,255,0.08);border-radius:6px;aspect-ratio:16/10;position:relative;overflow:hidden;}
+.cam-feed::before{content:attr(data-label);position:absolute;top:6px;left:8px;font-family:'JetBrains Mono',monospace;font-size:0.58rem;color:rgba(255,255,255,0.5);letter-spacing:0.08em;z-index:2;}
+.cam-dot{position:absolute;top:6px;right:8px;width:5px;height:5px;border-radius:50%;background:#4ade80;animation:pulse 2s ease-in-out infinite;z-index:2;}
+.cam-dot.alert{background:var(--magenta);box-shadow:0 0 8px var(--magenta);animation-duration:.5s;}
+.cam-bg{position:absolute;inset:0;background:linear-gradient(135deg,rgba(30,30,50,0.8) 0%,rgba(15,15,30,0.95) 100%);}
+.cam-scan{position:absolute;left:0;right:0;height:1px;background:rgba(0,255,136,0.4);animation:scan 3s linear infinite;}
+.cam-feed.alert-feed .cam-scan{background:rgba(232,16,90,0.5);}
+.cam-feed.alert-feed{border-color:rgba(232,16,90,0.4);box-shadow:0 0 0 1px rgba(232,16,90,0.2);}
+@keyframes scan{from{top:0;}to{top:100%;}}
+.cam-alert-badge{position:absolute;bottom:6px;left:50%;transform:translateX(-50%);background:var(--magenta);color:#fff;font-family:'JetBrains Mono',monospace;font-size:0.55rem;padding:2px 8px;border-radius:3px;white-space:nowrap;letter-spacing:0.05em;}
+
+/* BUILDER */
+#builder{padding:100px 0;}
+.builder-inner{display:grid;grid-template-columns:1fr 1.5fr;gap:80px;align-items:start;}
+@media(max-width:900px){.builder-inner{grid-template-columns:1fr;}}
+.builder-card{background:var(--bg2);border:1px solid var(--line);border-radius:12px;overflow:hidden;position:sticky;top:88px;}
+.builder-card-top{background:var(--magenta);padding:32px;text-align:center;}
+.builder-initial{width:80px;height:80px;background:rgba(255,255,255,0.15);border-radius:50%;margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:2rem;color:#fff;}
+.builder-name{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:0.05em;color:#fff;}
+.builder-title{font-size:0.78rem;color:rgba(255,255,255,0.75);margin-top:4px;}
+.builder-card-body{padding:24px 32px;}
+.builder-credential{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);font-size:0.83rem;}
+.builder-credential:last-child{border-bottom:none;}
+.bc-icon{font-size:1.1rem;flex-shrink:0;}
+.bc-text{color:var(--muted);}
+.bc-text strong{color:var(--ink);display:block;font-weight:500;}
+.builder-story p{color:var(--muted);font-size:0.95rem;line-height:1.8;margin-bottom:20px;}
+.pull-quote{border-left:3px solid var(--magenta);padding-left:24px;margin:32px 0;font-size:1.1rem;color:var(--ink);font-style:italic;line-height:1.6;}
+
+/* CONTACT */
+#contact{padding:100px 0;background:var(--bg2);position:relative;overflow:hidden;}
+#contact::before{content:'';position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:600px;height:400px;background:radial-gradient(ellipse,rgba(232,16,90,0.1),transparent 65%);pointer-events:none;}
+.contact-inner{text-align:center;position:relative;z-index:1;}
+.contact-inner .section-eyebrow{justify-content:center;}
+.contact-inner .section-eyebrow::after{display:none;}
+.contact-inner .section-sub{margin:0 auto 48px;}
+.contact-cards{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;margin-bottom:48px;}
+.contact-card{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:28px 36px;text-align:left;min-width:260px;transition:border-color .2s;}
+.contact-card:hover{border-color:rgba(232,16,90,0.4);}
+.cc-label{font-family:'JetBrains Mono',monospace;font-size:0.65rem;letter-spacing:0.2em;color:var(--magenta);text-transform:uppercase;margin-bottom:8px;}
+.cc-value{font-size:0.88rem;color:var(--ink);font-weight:500;}
+.cc-sub{font-size:0.78rem;color:var(--muted);margin-top:4px;}
+.location-line{font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.15em;color:var(--muted);}
+
+/* FOOTER */
+footer{padding:40px 0;border-top:1px solid var(--line);position:relative;z-index:1;}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+.footer-logo{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:0.08em;color:var(--muted);}
+.footer-logo span{color:var(--magenta);}
+.footer-copy{font-size:0.75rem;color:var(--muted);}
+.footer-built{font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:rgba(255,255,255,0.2);letter-spacing:0.1em;}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease;}
+.reveal.visible{opacity:1;transform:none;}
+.reveal-delay-1{transition-delay:.1s;}
+.reveal-delay-2{transition-delay:.2s;}
+.reveal-delay-3{transition-delay:.3s;}
+.reveal-delay-4{transition-delay:.4s;}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">MMC<span>·</span>AI</a>
+    <ul class="nav-links">
+      <li><a href="#features">System</a></li>
+      <li><a href="#rotation">Rotation</a></li>
+      <li><a href="#voice">Voice</a></li>
+      <li><a href="#security">Security</a></li>
+      <li><a href="#builder">The Architect</a></li>
+      <li><a href="#contact" class="nav-cta">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="container">
+    <div class="hero-inner">
+      <div>
+        <p class="hero-eyebrow">Michael's Men's Club · Lafayette, LA</p>
+        <h1>The Room<em>Runs Itself.</em></h1>
+        <p class="hero-sub">The most technologically advanced gentlemen's club in Louisiana operates a fully custom AI system — live rotation management, neural voice automation, earnings intelligence, and behavioral security analysis. Built in-house by the DJ who runs the floor.</p>
+        <div class="hero-btns">
+          <a href="#features" class="btn-primary">Explore the System ↓</a>
+          <a href="#contact" class="btn-ghost">Get in Touch</a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="rotation-demo">
+          <div class="demo-header">
+            <span class="demo-title">ROTATION · LIVE</span>
+            <span class="demo-live"><span class="live-dot"></span>ACTIVE</span>
+          </div>
+          <div class="stage-row">
+            <span class="stage-label">MAIN STAGE</span>
+            <div class="performer-card">
+              <span class="performer-dot"></span>
+              <div><div class="performer-name">Nova Baby</div><div class="performer-time">Set 2 of 2</div></div>
+            </div>
+            <div class="stage-timer" id="t1">6:24</div>
+          </div>
+          <div class="stage-row">
+            <span class="stage-label">SIDE STAGE</span>
+            <div class="performer-card side">
+              <span class="performer-dot"></span>
+              <div><div class="performer-name">Raven Angela</div><div class="performer-time">Set 1 of 2</div></div>
+            </div>
+            <div class="stage-timer" style="color:#00b4ff;" id="t2">3:11</div>
+          </div>
+          <div class="stage-row">
+            <span class="stage-label">VIP ROOM</span>
+            <div class="performer-card vip">
+              <span class="performer-dot"></span>
+              <div><div class="performer-name">Charlotte A.</div><div class="performer-time">Room 2</div></div>
+            </div>
+            <div class="stage-timer" style="color:var(--gold);" id="t3">18:40</div>
+          </div>
+          <div class="queue-row">
+            <div class="queue-label">NEXT UP</div>
+            <div class="queue-chips">
+              <span class="q-chip next">Autumn Knights</span>
+              <span class="q-chip">Bailey Fox</span>
+              <span class="q-chip">Galaxy</span>
+              <span class="q-chip">Bree Vybes</span>
+            </div>
+          </div>
+        </div>
+        <p style="font-family:'JetBrains Mono',monospace;font-size:0.62rem;color:var(--muted);text-align:center;margin-top:10px;letter-spacing:0.1em;">LIVE SYSTEM · MICHAEL'S MEN'S CLUB · LAFAYETTE LA</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stat-bar">
+  <div class="container">
+    <div class="stat-bar-inner">
+      <div class="stat-item reveal"><span class="stat-num">33</span><span class="stat-label">Years on the decks</span></div>
+      <div class="stat-item reveal reveal-delay-1"><span class="stat-num">315K</span><span class="stat-label">Songs in the library</span></div>
+      <div class="stat-item reveal reveal-delay-2"><span class="stat-num">481K</span><span class="stat-label">Photos archived</span></div>
+      <div class="stat-item reveal reveal-delay-3"><span class="stat-num">2039</span><span class="stat-label">People indexed</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- FEATURES -->
+<section id="features">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="section-eyebrow">The System</p>
+      <h2 class="section-title">Five Layers.<br>One Floor.</h2>
+      <p class="section-sub">Every component was designed specifically for this building, this staff, and this industry — by the man who works the room every night.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card reveal">
+        <span class="feature-icon">⚡</span>
+        <div class="feature-title">Live Rotation Management</div>
+        <p class="feature-desc">Real-time performer tracking across every stage. Intelligent sequencing with automatic transitions, VIP room logging, and drag-to-reorder. Every screen in the club updates simultaneously.</p>
+        <p class="feature-detail">→ Follow-follow · Multi-stage · Song-count timing</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-1">
+        <span class="feature-icon">🎙️</span>
+        <div class="feature-title">Neural Voice Automation</div>
+        <p class="feature-desc">A trained AI clone of the DJ's voice — 500 epochs of neural processing — delivers stage announcements automatically. The club sounds like itself even when the DJ is working the crowd.</p>
+        <p class="feature-detail">→ 26 min training audio · Indistinguishable from live</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-2">
+        <span class="feature-icon">💰</span>
+        <div class="feature-title">Earnings Intelligence</div>
+        <p class="feature-desc">House fees, room income, and shift totals tracked in real time and formatted for instant printing. Clean records for management without end-of-night reconciliation.</p>
+        <p class="feature-detail">→ Printable reports · Real-time · Every performer</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-1">
+        <span class="feature-icon">📷</span>
+        <div class="feature-title">AI Security Intelligence</div>
+        <p class="feature-desc">Computer vision analysis running across every camera feed continuously. Behavioral pattern recognition flags potential incidents before they escalate — giving security the seconds that matter.</p>
+        <p class="feature-detail">→ Live behavioral analysis · Pre-incident detection</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-2">
+        <span class="feature-icon">🎚️</span>
+        <div class="feature-title">Music Intelligence</div>
+        <p class="feature-desc">315,000 songs analyzed by BPM and Camelot harmonic key. Ask for compatible tracks at any tempo and receive specific songs from the actual library, instantly.</p>
+        <p class="feature-detail">→ 315K tracks · Camelot wheel · Live lookup</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-3">
+        <span class="feature-icon">🧠</span>
+        <div class="feature-title">Sovereign Intelligence</div>
+        <p class="feature-desc">A private AI running entirely on in-house hardware. No cloud dependency. No subscriptions. No third-party data access. 34 years of professional memory, instantly queryable.</p>
+        <p class="feature-detail">→ Local · Private · 481K photos · 14K videos</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROTATION -->
+<section id="rotation">
+  <div class="container">
+    <div class="rotation-inner">
+      <div class="reveal">
+        <p class="section-eyebrow">Rotation Management</p>
+        <h2 class="section-title">No Dead Time.<br>No Confusion.</h2>
+        <p class="section-sub">Runs on a dedicated backstage machine. Pushes live updates to every touchscreen in the building simultaneously.</p>
+        <ul class="rotation-points">
+          <li><span class="rp-num">01</span><span class="rp-text"><strong>Follow-Follow Pipeline</strong>Main stage first, side stage second — a continuous two-performer flow with no gaps and no overlap. Opens automatically when the night warrants it.</span></li>
+          <li><span class="rp-num">02</span><span class="rp-text"><strong>VIP & Room Tracking</strong>Room exits restore rotation position automatically. VIP returns to the back. Private dances preserve placement. No manual management.</span></li>
+          <li><span class="rp-num">03</span><span class="rp-text"><strong>Drag-to-Reorder</strong>Move any performer to the front in two seconds. Every timestamp recalculates. Every screen updates instantly.</span></li>
+          <li><span class="rp-num">04</span><span class="rp-text"><strong>Earnings Captured Live</strong>Stage time and room income logged continuously. Management reports generate on demand, formatted for print, no reconciliation required.</span></li>
+        </ul>
+      </div>
+      <div class="reveal reveal-delay-2">
+        <div class="rotation-demo">
+          <div class="demo-header">
+            <span class="demo-title">STAGE MANAGEMENT · TONIGHT</span>
+            <span class="demo-live"><span class="live-dot"></span>LIVE</span>
+          </div>
+          <div class="stage-row">
+            <span class="stage-label">MAIN</span>
+            <div class="performer-card"><span class="performer-dot"></span><div><div class="performer-name">Nova Baby</div><div class="performer-time">Song 2 · Set 2</div></div></div>
+            <div class="stage-timer">6:24</div>
+          </div>
+          <div class="stage-row">
+            <span class="stage-label">SIDE</span>
+            <div class="performer-card side"><span class="performer-dot"></span><div><div class="performer-name">Raven Angela</div><div class="performer-time">Song 1 · Set 1</div></div></div>
+            <div class="stage-timer" style="color:#00b4ff;">3:11</div>
+          </div>
+          <div class="stage-row">
+            <span class="stage-label">ROOM 1</span>
+            <div class="performer-card vip"><span class="performer-dot"></span><div><div class="performer-name">Charlotte A.</div><div class="performer-time">VIP · 18:40</div></div></div>
+            <div class="stage-timer" style="color:var(--gold);">$120</div>
+          </div>
+          <div class="stage-row">
+            <span class="stage-label">ROOM 2</span>
+            <div class="performer-card vip"><span class="performer-dot"></span><div><div class="performer-name">Galaxy</div><div class="performer-time">Dance · 4:20</div></div></div>
+            <div class="stage-timer" style="color:var(--gold);">$40</div>
+          </div>
+          <div class="queue-row">
+            <div class="queue-label">ROTATION QUEUE</div>
+            <div class="queue-chips">
+              <span class="q-chip next">Autumn Knights</span>
+              <span class="q-chip">Bailey Fox</span>
+              <span class="q-chip">Bree Vybes</span>
+              <span class="q-chip">Jasmine</span>
+            </div>
+          </div>
+          <div style="margin-top:16px;padding:10px 14px;background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.18);border-radius:6px;display:flex;justify-content:space-between;align-items:center;">
+            <div style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:var(--muted);letter-spacing:0.1em;">TONIGHT'S EARNINGS</div>
+            <div style="color:var(--gold);font-family:'Bebas Neue',sans-serif;font-size:1.4rem;">$1,840</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VOICE -->
+<section id="voice">
+  <div class="container">
+    <div class="voice-inner">
+      <div class="voice-visual reveal">
+        <p style="font-family:'JetBrains Mono',monospace;font-size:0.68rem;color:var(--muted);letter-spacing:0.15em;margin-bottom:8px;">NEURAL VOICE · SWAG_V2 · ACTIVE</p>
+        <div class="waveform">
+          <div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div>
+          <div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div>
+          <div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div>
+          <div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div>
+          <div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div>
+        </div>
+        <p class="voice-label">STAGE TRANSITION IN PROGRESS</p>
+        <div class="voice-stats">
+          <div class="vs-item"><span class="vs-num">500</span><span class="vs-label">Training epochs</span></div>
+          <div class="vs-item"><span class="vs-num">26m</span><span class="vs-label">Audio trained on</span></div>
+          <div class="vs-item"><span class="vs-num">0ms</span><span class="vs-label">Cloud latency</span></div>
+          <div class="vs-item"><span class="vs-num">1</span><span class="vs-label">Human voice cloned</span></div>
+        </div>
+      </div>
+      <div class="reveal reveal-delay-2">
+        <p class="section-eyebrow">Neural Voice</p>
+        <h2 class="section-title">The DJ's Voice.<br>Always On.</h2>
+        <p class="section-sub" style="margin-bottom:24px;">A trained AI model of DJ Swaggle's own voice handles stage announcements automatically. No pre-recorded clips — a living voice model that synthesizes in real time, indistinguishable from the DJ at the microphone.</p>
+        <p style="color:var(--muted);font-size:0.9rem;line-height:1.75;margin-bottom:24px;">When a performer is called to the stage, when a transition happens, when an announcement goes out — the system speaks it. In Jeremy's voice. While Jeremy works the room.</p>
+        <div style="margin-top:28px;padding:20px 24px;border:1px solid var(--line);border-radius:8px;background:var(--bg2);">
+          <p style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--magenta);letter-spacing:0.15em;margin-bottom:10px;">CURRENT CALL · RENDERED LIVE</p>
+          <p style="font-size:1rem;color:var(--ink);font-style:italic;line-height:1.5;">"Coming to the main stage right now — give it up for the beautiful Autumn Knights..."</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECURITY -->
+<section id="security">
+  <div class="container">
+    <div class="security-inner">
+      <div class="reveal">
+        <p class="section-eyebrow">Security Intelligence</p>
+        <h2 class="section-title">Sees It Before<br>It Happens.</h2>
+        <p class="section-sub" style="margin-bottom:24px;">The camera system does more than record. AI-powered behavioral analysis monitors every feed in real time, recognizing the early physical signals of conflict before they escalate into incidents.</p>
+        <p style="color:var(--muted);font-size:0.9rem;line-height:1.75;margin-bottom:24px;">In a loud, dark, crowded venue, the seconds between first sign of tension and physical incident are the difference between managed and emergency. The system watches those seconds — across every camera, simultaneously, without fatigue.</p>
+        <p style="color:var(--muted);font-size:0.9rem;line-height:1.75;">Behavioral pattern recognition. Crowd density analysis. Proximity detection. Running quietly, every hour the club is open.</p>
+      </div>
+      <div class="reveal reveal-delay-2">
+        <div class="camera-grid">
+          <div class="cam-feed" data-label="CAM 01 · ENTRANCE"><div class="cam-bg"></div><div class="cam-dot"></div><div class="cam-scan"></div></div>
+          <div class="cam-feed alert-feed" data-label="CAM 03 · MAIN FLOOR"><div class="cam-bg"></div><div class="cam-dot alert"></div><div class="cam-scan"></div><div class="cam-alert-badge">⚠ BEHAVIORAL ALERT</div></div>
+          <div class="cam-feed" data-label="CAM 05 · BAR"><div class="cam-bg"></div><div class="cam-dot"></div><div class="cam-scan" style="animation-delay:-1.5s;"></div></div>
+          <div class="cam-feed" data-label="CAM 07 · STAGE REAR"><div class="cam-bg"></div><div class="cam-dot"></div><div class="cam-scan" style="animation-delay:-0.7s;"></div></div>
+        </div>
+        <div style="margin-top:12px;background:var(--bg2);border:1px solid rgba(232,16,90,0.2);border-radius:6px;padding:12px 16px;display:flex;align-items:center;gap:12px;">
+          <div style="width:8px;height:8px;border-radius:50%;background:var(--magenta);box-shadow:0 0 8px var(--magenta);animation:pulse .5s ease-in-out infinite;flex-shrink:0;"></div>
+          <div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:var(--magenta);letter-spacing:0.1em;">ALERT · CAM 03 · MAIN FLOOR</div>
+            <div style="font-size:0.75rem;color:var(--muted);margin-top:2px;">Elevated proximity pattern detected — security notified</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BUILDER -->
+<section id="builder">
+  <div class="container">
+    <div class="builder-inner">
+      <div class="reveal">
+        <div class="builder-card">
+          <div class="builder-card-top">
+            <div class="builder-initial">JS</div>
+            <div class="builder-name">Jeremy Sweigert</div>
+            <div class="builder-title">"DJ Swaggle" · Michael's Men's Club</div>
+          </div>
+          <div class="builder-card-body">
+            <div class="builder-credential"><span class="bc-icon">🏆</span><span class="bc-text"><strong>DJ of the Year 2019</strong>Exotic Dancer Publications</span></div>
+            <div class="builder-credential"><span class="bc-icon">🎵</span><span class="bc-text"><strong>33 Years in the Industry</strong>Since March 13, 1993</span></div>
+            <div class="builder-credential"><span class="bc-icon">🌐</span><span class="bc-text"><strong>swaggle.com (2002–2012)</strong>Pre-YouTube video platform founder</span></div>
+            <div class="builder-credential"><span class="bc-icon">🎖️</span><span class="bc-text"><strong>PANDA Courage Award</strong>Industry recognition</span></div>
+            <div class="builder-credential"><span class="bc-icon">📍</span><span class="bc-text"><strong>Lafayette, Louisiana</strong>DJ · MC · Marketing Director · Architect</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="builder-story reveal reveal-delay-2">
+        <p class="section-eyebrow">The Architect</p>
+        <h2 class="section-title" style="margin-bottom:28px;">Built By Someone Who Actually Runs a Club Floor.</h2>
+        <p>Jeremy "Swaggle" Sweigert started performing on March 13, 1993 — the night of the Blizzard of '93 in Tower City, Pennsylvania. Over the next three decades he worked his way from Pennsylvania clubs to Lafayette, Louisiana, accumulating the kind of floor-level operational knowledge that no software company can manufacture from the outside.</p>
+        <p>Before building the AI system at Michael's Men's Club, Jeremy built swaggle.com — one of the internet's earliest video-sharing platforms, running from 2002 to 2012 before YouTube reached cultural dominance. The instinct to build tools that don't exist yet is not new.</p>
+        <div class="pull-quote">"The same obsessive attention to craft I apply to reading a room and building a set — I applied to building the tools that run the room."</div>
+        <p>What distinguishes the MMC AI system from every commercial product in the industry is that it was designed by someone who has stood behind a DJ booth for 33 years. Every feature exists because Jeremy needed it on a real night at Michael's Men's Club — not because a product manager thought it would be a good idea.</p>
+        <p>The system is entirely self-hosted, owned outright, and continuously improved. There is no vendor. There is no support contract. It runs every night, and it gets better every week.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-inner">
+      <p class="section-eyebrow">Get In Touch</p>
+      <h2 class="section-title reveal">Michael's Men's Club<br>& Jeremy Sweigert</h2>
+      <p class="section-sub reveal">Industry professionals, press, and partners interested in learning more about the MMC AI operations system are welcome to reach out directly.</p>
+      <div class="contact-cards reveal">
+        <div class="contact-card">
+          <div class="cc-label">Jeremy Sweigert</div>
+          <div class="cc-value">jeremysweigert@gmail.com</div>
+          <div class="cc-sub">DJ · MC · Architect · Marketing Director</div>
+        </div>
+        <div class="contact-card">
+          <div class="cc-label">Michael's Men's Club</div>
+          <div class="cc-value">michaelsmensclub@yahoo.com</div>
+          <div class="cc-sub">Management & General Inquiries</div>
+        </div>
+      </div>
+      <p class="location-line reveal">MICHAEL'S MEN'S CLUB · LAFAYETTE, LOUISIANA</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span class="footer-logo">MMC<span>·</span>AI</span>
+      <span class="footer-copy">© 2026 Michael's Men's Club · Lafayette, Louisiana</span>
+      <span class="footer-built">BUILT IN-HOUSE · OWNED IN-HOUSE · RUNNING NIGHTLY</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Scroll reveal
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// Live timers on hero rotation demo
+function tickTimer(id, up) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const txt = el.textContent;
+  if (!txt.includes(':')) return;
+  const [m, s] = txt.split(':').map(Number);
+  let total = m * 60 + s + (up ? 1 : -1);
+  if (total < 0) total = 0;
+  const nm = Math.floor(total / 60), ns = total % 60;
+  el.textContent = nm + ':' + String(ns).padStart(2, '0');
+}
+setInterval(() => { tickTimer('t1', false); tickTimer('t2', false); tickTimer('t3', true); }, 1000);
+</script>
+</body>
+</html>
